@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Player</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="sign_in">Sign In</string>
+    <string name="signing_in">Signing In...</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="login">Login</string>
+
+    <string name="feed_title">Feed</string>
+    <string name="feed_following">Following</string>
+    <string name="feed_discover">Discover</string>
+    <string name="feed_streaming">Streaming</string>
+    <string name="feed_streaming_discover">All Streams</string>
+    <string name="feed_post">Post</string>
+    <string name="feed_post_hint">What\'s up, Player?</string>
+    <string name="feed_post_detail_title">Comments</string>
+    <string name="feed_post_comment_hint">Type your message here</string>
+    <string name="feed_post_comment_button_text">Post</string>
+    <string name="nothing_here">Awww, looks like there\'s nothing here. You could follow more people, or try the discover tab to see what other players are up to!</string>
+
+</resources>
