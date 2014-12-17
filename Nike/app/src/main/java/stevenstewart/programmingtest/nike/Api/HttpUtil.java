@@ -20,9 +20,10 @@ import javax.net.ssl.HttpsURLConnection;
  */
 public class HttpUtil
 {
-    public static String CURRENCY_API_CALL = "http://rate-exchange.appspot.com/currency?from=EUR&to=USD";
-    public static int API_READ_TIMEOUT = 30000;
-    public static int API_CONNECT_TIMEOUT = 30000;
+    public static String CURRENCY_API_CALL = "http://rate-exchange.herokuapp.com/fetchRate?from=EUR&to=USD";
+    public static String CURRENCY_API_CALL2 = "http://rate-exchange.appspot.com/currency?from=EUR&to=USD";
+    public static int API_READ_TIMEOUT = 5000;
+    public static int API_CONNECT_TIMEOUT = 5000;
 
     public static ResponseObject makeRequest(String methodName, String requestType, ArrayList<KeyValuePair> headers, ArrayList<KeyValuePair> parameters, boolean useHttps)
     {

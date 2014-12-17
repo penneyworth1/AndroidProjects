@@ -27,6 +27,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.provider.ContactsContract.CommonDataKinds;
+import android.widget.Toast;
+
+import org.apache.http.HttpStatus;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -77,9 +80,13 @@ public class MainActivity extends ActionBarActivity
                             {
                                 waitingForApiResponse = true;
                                 ResponseObject responseObject = HttpUtil.makeRequest(HttpUtil.CURRENCY_API_CALL,"GET",null,null,false);
+                                if(responseObject.jsonResponse == null) //Try the secondary service
+                                    responseObject = HttpUtil.makeRequest(HttpUtil.CURRENCY_API_CALL2,"GET",null,null,false);
                                 if(!(responseObject.jsonResponse == null))
                                 {
-                                    double currentValue = responseObject.jsonResponse.optDouble("rate",0);
+                                    double currentValue = responseObject.jsonResponse.optDouble("Rate",0);
+                                    //One of these services returns rate with a lower case r.
+                                    if(currentValue < 0.0001) currentValue = responseObject.jsonResponse.optDouble("rate",0);
 
                                     DataItem dataItem = new DataItem();
                                     dataItem.acceleration = a;
@@ -91,6 +98,14 @@ public class MainActivity extends ActionBarActivity
                                     long newId = databaseHelper.insertDataItem(dataItem);
 
                                     updateDataView();
+                                }
+                                else if(responseObject.responseCode == HttpStatus.SC_SERVICE_UNAVAILABLE)
+                                {
+                                    showToast("Web service unavailable!");
+                                }
+                                else
+                                {
+                                    showToast("Error trying to reach web service!");
                                 }
                                 waitingForApiResponse = false;
                             }
@@ -196,6 +211,18 @@ public class MainActivity extends ActionBarActivity
                 DatabaseHelper databaseHelper = new DatabaseHelper(thisActivity);
                 dataItems = databaseHelper.getDataItems();
                 dataAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+    public void showToast(final String text)
+    {
+        //Post on the UI thread.
+        new Handler(Looper.getMainLooper()).post(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                Toast.makeText(thisActivity,text,Toast.LENGTH_LONG).show();
             }
         });
     }
