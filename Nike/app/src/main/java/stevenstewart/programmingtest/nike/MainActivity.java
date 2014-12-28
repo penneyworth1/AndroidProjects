@@ -41,6 +41,14 @@ import stevenstewart.programmingtest.nike.Api.ResponseObject;
 
 public class MainActivity extends ActionBarActivity
 {
+    static {
+        System.loadLibrary("MyLib");
+    }
+
+    public native String getNativeString();
+
+
+
     private static int PICK_CONTACT_REQUEST_CODE = 123;
     private static int SENT_EMAIL_REQUEST_CODE = 124;
 
@@ -184,6 +192,8 @@ public class MainActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         thisActivity = this;
+
+        String test = getNativeString();
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
