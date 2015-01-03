@@ -71,7 +71,7 @@ public class Util
     }
     public static int pixelNumberForDp(float dp, AppState appState)
     {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, dp, appState.mainActivity.getResources().getDisplayMetrics());
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, appState.mainActivity.getResources().getDisplayMetrics());
     }
     public static int getTextViewWidth(TextView textView)
     {
