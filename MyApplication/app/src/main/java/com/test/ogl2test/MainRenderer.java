@@ -49,7 +49,7 @@ public class MainRenderer implements GLSurfaceView.Renderer
         long systemTime = SystemClock.elapsedRealtime();
         long deltaTime = (int)(systemTime - lastUpdateTime);
         lastUpdateTime = SystemClock.elapsedRealtime();
-        if(deltaTime > 1000) deltaTime = 1000;
+        if(deltaTime > 100) deltaTime = 100;
 
         nativeDrawFrame((int)deltaTime);
     }
