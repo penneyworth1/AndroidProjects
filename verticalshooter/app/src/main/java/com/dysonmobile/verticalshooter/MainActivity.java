@@ -2,6 +2,7 @@ package com.dysonmobile.verticalshooter;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,7 +25,15 @@ public class MainActivity extends ActionBarActivity
         String test = getNativeString();
         Log.d(test, test);
 
-        setContentView(R.layout.activity_main);
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        MainRenderer mainRenderer = new MainRenderer(metrics.widthPixels,metrics.heightPixels);
+        MainSurfaceView mainSurfaceView = new MainSurfaceView(this);
+        mainSurfaceView.setEGLContextClientVersion(2);
+        mainSurfaceView.setRenderer(mainRenderer);
+
+        setContentView(mainSurfaceView);
     }
 
 
