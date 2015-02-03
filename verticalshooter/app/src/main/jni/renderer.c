@@ -195,6 +195,7 @@ void initView(float screenWidthInPixelsPar, float screenHeightInPixelsPar)
 
 void renderScene()
 {
+    //__android_log_write(ANDROID_LOG_INFO, "Native c method", "rederer: renderScene starting");
     //angle += 0.001 * timeDiffMillies; if(angle > 2*pi) angle = 0;
 
     //Build a quaternion for the current angle.
@@ -223,8 +224,8 @@ void renderScene()
     //glUniform1f(uniform_shininess, shininess);
 
     glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-    glVertexAttribPointer(_normalSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float) * 3));
-    glVertexAttribPointer(_colorSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(float) * 6));
+    glVertexAttribPointer(_normalSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(GLfloat) * 3));
+    glVertexAttribPointer(_colorSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) (sizeof(GLfloat) * 6));
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glDrawElements(GL_TRIANGLES, theModel.IndexCount, GL_UNSIGNED_SHORT, 0);

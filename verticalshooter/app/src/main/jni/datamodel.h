@@ -28,7 +28,7 @@
 #define STRUCTS_AND_VARS
 typedef struct
 {
-    float x,y,z,nx,ny,nz,r,g,b;
+    GLfloat x,y,z,nx,ny,nz,r,g,b;
 }Vertex;
 typedef struct
 {

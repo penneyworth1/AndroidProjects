@@ -7,3 +7,4 @@ void Java_com_dysonmobile_verticalshooter_MainRenderer_nativeDrawFrame(JNIEnv*, 
 void Java_com_dysonmobile_verticalshooter_MainRenderer_nativeUpdateWorld(JNIEnv*, jobject, jint);
 void Java_com_dysonmobile_verticalshooter_MainRenderer_nativeInitView(JNIEnv*, jobject, jfloat, jfloat);
 void Java_com_dysonmobile_verticalshooter_MainRenderer_nativeInitDataModel(JNIEnv*, jobject);
+void Java_com_dysonmobile_verticalshooter_MainRenderer_nativeLoadModel(JNIEnv*, jobject, jfloatArray, jshortArray, jint, jint);

@@ -10,6 +10,8 @@ int updateWorld(int timeDiffMillies)
 
 void loadModel(int vertexCount, int indexCount, Vertex* vertexComponents, GLushort* indices)
 {
+    __android_log_write(ANDROID_LOG_INFO, "Native c method", "controller: loadModel starting");
+
     free(theModel.Vertices);
     free(theModel.Indices);
     theModel.VertexCount = vertexCount;

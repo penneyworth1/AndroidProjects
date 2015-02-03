@@ -28,7 +28,7 @@ public class MainActivity extends ActionBarActivity
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-        MainRenderer mainRenderer = new MainRenderer(metrics.widthPixels,metrics.heightPixels);
+        MainRenderer mainRenderer = new MainRenderer(metrics.widthPixels,metrics.heightPixels,this);
         MainSurfaceView mainSurfaceView = new MainSurfaceView(this);
         mainSurfaceView.setEGLContextClientVersion(2);
         mainSurfaceView.setRenderer(mainRenderer);
