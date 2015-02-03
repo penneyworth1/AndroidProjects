@@ -1,6 +1,6 @@
 package com.dysonmobile.verticalshooter;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends ActionBarActivity
+public class MainActivity extends Activity
 {
     static
     {
